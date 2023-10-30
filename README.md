@@ -4,6 +4,6 @@ This is a lab in the data structure and algorithm course of SCU, which realizes 
 
 
 
-## 踩坑
+## Some Lab Experience
 
-模板类不能分解为两个文件，会报错！
+1. template in cplusplus: The template class **cannot be split into two files**, and an error will be reported!
