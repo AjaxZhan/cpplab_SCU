@@ -1,8 +1,8 @@
-带括号的算术表达式求值
+## Introduction
 
-单目负号
+This is a lab in the data structure and algorithm course of SCU, which realizes the analysis and operation of mathematical expressions using C++.
 
-小数
+
 
 ## 踩坑
 
