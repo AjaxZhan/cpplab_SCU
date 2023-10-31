@@ -1,18 +1,24 @@
-/**
- * 功能：手动实现Stack
-*/
 #ifndef STACK_SELF
 #define STACK_SELF
 #include <iostream>
 using namespace std;
 #define DEFAULT_SIZE 100
 
+/**
+ * @brief Simple self-implementation stack class.
+ * @version 1.0
+ * @author CagurZhan
+*/
 template<class T>
 class Stack{
 
 private:
+    /** Store item in stack. */
     T* items;
+    /** Top pointer. */
     int sp;
+    /** Capacity of the stack .*/
+    /** It can be use to resize the items, but I have not implement yet. */
     int capacity;
 
 public:
@@ -24,7 +30,6 @@ public:
     int size();
     bool empty();
     bool full();
-
     ~Stack(){
         delete[] this->items;
     }

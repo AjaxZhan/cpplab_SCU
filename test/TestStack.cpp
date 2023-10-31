@@ -1,25 +1,35 @@
-#include "Stack.h"
+/**
+ * @brief Test the stack class. 
+ * @version 1.0
+ * @author CagurZhan
+*/
+#include "../utils/Stack.h"
 using namespace std;
 
-int main(){
+/** A stupid test for my stack class. */
+void testStack(){
     Stack<int> s(100);
     s.push(100);
     s.push(200);
     s.push(300);
     s.push(400);
 
-    cout << "s.size()" << s.size() << endl;
+    if(s.top()!=400) throw runtime_error("Fail to pass top() and push() test!");
+
+    if(s.size() != 4) throw runtime_error("Fail to pass size() test!");
 
     while(!s.empty()){
-        cout << s.pop() << " ";
+        s.pop();
     }
-    cout << endl;
+
+    if(!s.empty()) throw runtime_error("Fail to pass empty() and pop() test!");
+
+    cout << "Congratulation!  testStack() pass ! " << endl;
+}
+
+int main(){
+
+    testStack();
     
-    cout << "isempty , 1 is yes : " << s.empty() << endl;
-
-    cout  << "now s.size is "<< s.size() << endl;
-
-
-
     return 0;
 }

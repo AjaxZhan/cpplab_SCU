@@ -1,9 +1,10 @@
 /**
- * 定义算术异常相关枚举
+ * @brief Define arithmetic anomaly related enumerations
+ * @version 1.0
+ * @author CagurZhan
 */
-
-#ifndef MAX_EXCEPTION_ENUM
-#define MAX_EXCEPTION_ENUM
+#ifndef MATH_EXCEPTION_ENUM
+#define MATH_EXCEPTION_ENUM
 #include <string>
 using namespace std;
 
