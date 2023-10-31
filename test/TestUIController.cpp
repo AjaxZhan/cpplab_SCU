@@ -3,7 +3,7 @@
  * @version 1.0
  * @author CagurZhan
 */
-#include "../controller/UIController.h"
+#include "includes/UIController.h"
 using namespace std;
 
 int main(){

@@ -1,20 +1,6 @@
-/**
- * @brief Responsible for interacting with users
- * @version 1.0
- * @author CagurZhan
-*/
-#ifndef UI_CONTROLLER
-#define UI_CONTROLLER
-#include <iostream>
-#include <string>
-using namespace std;
+#include "../includes/UIController.h"
 
-class UIController{
-public:
-    void init();
-    void menu();
-};
-
+/** Displayed  initialization information */
 void UIController::init(){
     cout <<
         "                          _ooOoo_                               " <<  endl <<   
@@ -39,8 +25,55 @@ void UIController::init(){
         " >>>>>>>>>>(♥◠‿◠)ﾉﾞ 欢迎来到表达式求值系统  ლ(´ڡ`ლ)<<<<<<<<<<" << endl <<  
         " >>>>>>>>>>佛祖保佑ლ     永无BUGლ   永不修改ლ       <<<<<<<<<<"<< endl << 
         " >>>>>>>>>>输入1进入系统   输入2查看帮助  输入0退出系统<<<<<<<<<<"<< endl;
+    cin >> input;
+    checkInput();
 }
 
+/** Check user's input */
+void UIController::checkInput(){
+    switch (input)
+    {
+    case 0: // Exit system
+        cout << "拜拜了您，欢迎下次使用！" << endl;
+        exit(0);
+        break;
+    case 1 : // handle expression
+
+        // 1. input the expression
+        cout << "请输入您想要计算的表达式，格式请看说明！" << endl;        
+        cin >> this->exp;
+        expression = Expression(this->exp);
+
+        // 2. check validation
+        try{
+            expression.checkValidation();
+        }catch(const runtime_error & e){
+            cout << "表达式解析错误，错误原因：" << e.what() << endl;
+            ifContinue();
+            return ;
+        }
+
+        // 3. calculate the result
+        expression.calculate();
+
+        // 4. print the result
+        expression.printResult();
+
+        // 5. query if continue? 
+        ifContinue();
+        
+        break;
+    case 2: // Show help message
+        help();
+        ifContinue();
+        break;
+    default:
+        menu();
+        break;
+    }
+}
+
+/** Show menus */
 void UIController::menu(){
     cout <<
         " >>>>>>>>>>(♥◠‿◠)ﾉﾞ      系统菜单            ლ(´ڡ`ლ)<<<<<<<<<<" << endl <<  
@@ -48,9 +81,27 @@ void UIController::menu(){
         " >>>>>>>>>>            输入1进入系统                <<<<<<<<<<"<< endl <<
         " >>>>>>>>>>            输入2查看帮助                <<<<<<<<<<"<< endl <<
         " >>>>>>>>>>            输入0退出系统                <<<<<<<<<<"<< endl;
-
+    checkInput();
 }
 
+/** Show help message. */
+void UIController::help() {
+    cout <<
+        " >>>>>>>>>>(♥◠‿◠)ﾉﾞ      帮助信息            ლ(´ڡ`ლ)<<<<<<<<<<" << endl <<  
+        "支持运算类型如下：加(+)、减(-)、乘(*)、除法(/)、乘方(^)、取模(%)" << endl << 
+        "注意1：负数应该用#表示" << endl << 
+        "注意2：系统默认保留3位小数" << endl;
+}
 
-
-#endif
+/** Ask user if continue. */
+void UIController::ifContinue(){
+    cout << "是否继续操作？输入1表示继续，否则退出。" << endl;
+    int tmp;
+    if(tmp == 1){
+        cout <<endl;
+        menu();
+    }else{
+        cout << "拜拜了您，欢迎下次使用！" << endl;
+        exit(0);
+    }
+}

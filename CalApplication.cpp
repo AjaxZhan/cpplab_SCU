@@ -3,9 +3,12 @@
  * @version 1.0
  * @author Cagurzhan
 */
-// TODO
-int main(){
+#include "includes/UIController.h"
+using namespace std;
 
+int main(){
+    UIController UI;
+    UI.init();
 
     return 0;
 }

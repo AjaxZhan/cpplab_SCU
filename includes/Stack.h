@@ -1,5 +1,5 @@
-#ifndef STACK_SELF
-#define STACK_SELF
+#ifndef _STACK_SELF_
+#define _STACK_SELF_
 #include <iostream>
 using namespace std;
 #define DEFAULT_SIZE 100
@@ -15,14 +15,15 @@ class Stack{
 private:
     /** Store item in stack. */
     T* items;
+    
     /** Top pointer. */
     int sp;
+
     /** Capacity of the stack .*/
     /** It can be use to resize the items, but I have not implement yet. */
     int capacity;
 
 public:
-    /** Stack interface */
     Stack(int size=DEFAULT_SIZE);
     void push(T);
     T pop();
@@ -33,7 +34,6 @@ public:
     ~Stack(){
         delete[] this->items;
     }
-
 };
 
 /** Constructor */

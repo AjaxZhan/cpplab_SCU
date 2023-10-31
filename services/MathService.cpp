@@ -1,20 +1,30 @@
-/**
- * @brief Encapsulate math operations and perform it. 
- * @version 1.0
- * @author CagurZhan
-*/
-#ifndef MATH_SERVICE
-#define MATH_SERVICE
+#include "../includes/MathService.h"
 
-// TODO 
-class MathService {
+double MathService::add(double a, double b){
+    return a + b;
+}
 
-private:
-    double add();
+double MathService::sub(double a, double b){
+    return a - b;
+}
 
-public:
-    double calculate();
+double MathService::mul(double a, double b){
+    return a *b ;
+}
 
-};
+double MathService::div(double a, double b){
+    if(b == 0) throw runtime_error(MathExceptionEnum::DIVISOR_ZERO_ERROR);
+    return a / b ;
+}
 
-#endif
+double MathService::mod(double a, double b){
+    // a or b is not Integer.
+    if(abs(a - static_cast<int>(a)) > GlobalEnum::ACCURACY
+    || abs(b - static_cast<int>(b)) > GlobalEnum::ACCURACY)
+        throw runtime_error(MathExceptionEnum::MOD_ERROR);
+    
+    if(abs(b) <= GlobalEnum::ACCURACY)
+        throw runtime_error(MathExceptionEnum::MOD_ZERO_ERROR);
+    
+    return static_cast<int>(a) % static_cast<int>(b);
+}

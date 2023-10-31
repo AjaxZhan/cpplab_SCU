@@ -3,7 +3,7 @@
  * @version 1.0
  * @author CagurZhan
 */
-#include "../utils/Stack.h"
+#include "includes/Stack.h"
 using namespace std;
 
 /** A stupid test for my stack class. */

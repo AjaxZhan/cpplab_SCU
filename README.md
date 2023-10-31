@@ -2,6 +2,8 @@
 
 This is a lab in the data structure and algorithm course of SCU, which realizes the analysis and operation of mathematical expressions using C++.
 
+Since I seldom write C++ programs, I especially welcome suggestions from all walks of life for this small project.
+
 ## Environment And Dependencies
 
 - Language: C++
