@@ -9,13 +9,15 @@
 
 #include <string>
 #include <set>
+#include <unordered_map>
 
 using namespace std;
 
 namespace ExpressionEnum {
     const string ILLEGAL_CHARACTER_ERROR = "请勿输入非法字符";
-    const string MISSING_OPERATOR_ERROR = "缺少运算符";
-    const string MISSING_OPERAND_ERROR = "缺少算子";
+    const string ILLEGAL_SPACE_ERROR = "表达式不应该含有空格";
+    const string MISSING_OPERATOR_ERROR = "运算符错误，请检查您的输入"; 
+    const string MISSING_OPERAND_ERROR = "运算单元错误，请检查您的运算单元"; 
     const string BUCKET_ERROR = "括号不匹配";
     const string COMMON_ERROR = "未知错误，请检查表达式";
 }
@@ -23,7 +25,16 @@ namespace ExpressionEnum {
 namespace GlobalEnum {
     const double PI = 3.14159265358979323846;
     const double ACCURACY = 1e-3;
-    const set<char> ILLEGAL_OPERAND = {'+','-','*','/','^','%','#'};  
+    const set<char> ILLEGAL_OPERAND = {'+','-','*','/','%','#'};
+    const unordered_map<char,int> operatorPriority{
+        {'+',1},
+        {'-',1},
+        {'*',2},
+        {'/',2},
+        {'%',2},
+        {'(',0}
+    };
+    
 }
 
 namespace MathExceptionEnum {

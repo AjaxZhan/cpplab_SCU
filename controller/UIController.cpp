@@ -53,7 +53,10 @@ void UIController::checkInput(){
             return ;
         }
 
-        // 3. calculate the result
+        // 3. get RPN
+        expression.inFixExpToRPN();
+
+        // 4. calculate 
         expression.calculate();
 
         // 4. print the result
@@ -81,6 +84,7 @@ void UIController::menu(){
         " >>>>>>>>>>            输入1进入系统                <<<<<<<<<<"<< endl <<
         " >>>>>>>>>>            输入2查看帮助                <<<<<<<<<<"<< endl <<
         " >>>>>>>>>>            输入0退出系统                <<<<<<<<<<"<< endl;
+    cin >> input;
     checkInput();
 }
 
@@ -88,15 +92,17 @@ void UIController::menu(){
 void UIController::help() {
     cout <<
         " >>>>>>>>>>(♥◠‿◠)ﾉﾞ      帮助信息            ლ(´ڡ`ლ)<<<<<<<<<<" << endl <<  
-        "支持运算类型如下：加(+)、减(-)、乘(*)、除法(/)、乘方(^)、取模(%)" << endl << 
+        "支持运算类型如下：加(+)、减(-)、乘(*)、除法(/)、取模(%)" << endl << 
+        "支持的数字类型如下：自然数、负整数、全体浮点数" << endl << 
         "注意1：负数应该用#表示" << endl << 
-        "注意2：系统默认保留3位小数" << endl;
+        "注意2：系统不允许表达式带空格" << endl;
 }
 
 /** Ask user if continue. */
 void UIController::ifContinue(){
     cout << "是否继续操作？输入1表示继续，否则退出。" << endl;
     int tmp;
+    cin >> tmp;
     if(tmp == 1){
         cout <<endl;
         menu();
