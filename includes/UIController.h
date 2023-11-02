@@ -9,7 +9,11 @@
 #include <string>
 #include "Expression.h"
 using namespace std;
-
+/**
+ * @brief Responsible for user interaction
+ * @version 1.0
+ * @author CagurZhan
+*/
 class UIController{
 public:
     Expression expression; // expression

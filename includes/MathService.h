@@ -10,7 +10,11 @@
 #include "Enum.h"
 
 using namespace std;
-
+/**
+ * @brief Encapsulate math calculations and add exception mechanisms
+ * @version 1.0
+ * @author CagurZhan
+*/
 class MathService {
 
 public:

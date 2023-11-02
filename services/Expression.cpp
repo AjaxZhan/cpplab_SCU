@@ -1,7 +1,10 @@
 #include "../includes/Expression.h"
 
 /**
- * @return expression result
+ * @note Must be called after inFixExpToRPN()
+ * @brief Calculate result from RPN
+ * @return Expression result
+ * @throw run_time_error if there exist arithmetic exception.
 */
 double Expression::calculate(){
     Stack<double>st;
@@ -71,7 +74,9 @@ void Expression::checkValidation(){
     if(buckNum && buckNum%2!=0) throw runtime_error(ExpressionEnum::BUCKET_ERROR); 
 }
 
-/** Convert inFixExp to RPN*/
+/** 
+ * @brief convert inFixExp to RPN
+ * */
 void Expression::inFixExpToRPN(){
 
     Stack<char> stk;
