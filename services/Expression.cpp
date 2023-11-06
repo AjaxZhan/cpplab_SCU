@@ -42,7 +42,7 @@ void Expression::checkValidation(){
         if(c == ' ') throw runtime_error(ExpressionEnum::ILLEGAL_SPACE_ERROR);
 
         // 表达式含有非法字符
-        if(!(isdigit(c) || c== '+' || c=='-' || c=='*' || c=='/' || c=='#' || c=='(' || c==')' || c=='.' )){
+        if(!(isdigit(c) || c== '+' || c=='-' || c=='*' || c=='/' || c=='#' || c=='(' || c==')' || c=='.' || c=='%' )){
             throw runtime_error(ExpressionEnum::ILLEGAL_CHARACTER_ERROR);
         }
 
