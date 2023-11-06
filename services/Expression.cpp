@@ -9,7 +9,7 @@
 double Expression::calculate(){
     Stack<double>st;
     for(auto &item : RPN){
-        if(item == "+" || item == "-" || item == "*" || item == "/") {
+        if(item == "+" || item == "-" || item == "*" || item == "/" || item == "%") {
             auto a = st.top();
             st.pop();
             auto b = st.top();
