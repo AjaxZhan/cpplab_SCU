@@ -34,7 +34,6 @@ double Expression::calculate(){
  * @throw rum_time_error if expression is invalid.
 */
 void Expression::checkValidation(){
-    bool lastBucket = 1; // 0: left,  1 :right
     char buckNum = 0;
     bool lastpoint = false;
     for(auto &c: userExp){
@@ -55,17 +54,8 @@ void Expression::checkValidation(){
         }
 
         // 统计括号数量
-        if(c== '('){
-            // 上一个括号是 '('
-            if(!lastBucket) throw runtime_error(ExpressionEnum::BUCKET_ERROR);
+        if(c== '(' || c==')')
             buckNum++;
-            lastBucket = !lastBucket;
-        }else if(c == ')'){
-            // 上一个括号是 ')'
-            if(lastBucket) throw runtime_error(ExpressionEnum::BUCKET_ERROR);
-            buckNum++;
-            lastBucket = !lastBucket;
-        }
 
 
     }
