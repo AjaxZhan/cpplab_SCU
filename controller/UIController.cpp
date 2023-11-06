@@ -57,7 +57,13 @@ void UIController::checkInput(){
         expression.inFixExpToRPN();
 
         // 4. calculate 
-        expression.calculate();
+        try{
+            expression.calculate();
+        }catch(const runtime_error& e){
+            cout << "计算过程出现错误，错误原因：" <<e.what() << endl;
+            ifContinue();
+            return ;
+        }
 
         // 4. print the result
         expression.printResult();
