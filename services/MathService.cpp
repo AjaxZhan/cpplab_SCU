@@ -19,12 +19,12 @@ double MathService::div(double a, double b){
 
 double MathService::mod(double a, double b){
     // a or b is not Integer.
-    if(abs(a - static_cast<int>(a)) > GlobalEnum::ACCURACY
-    || abs(b - static_cast<int>(b)) > GlobalEnum::ACCURACY)
+    if(abs(a - static_cast<long long>(a)) > GlobalEnum::ACCURACY
+    || abs(b - static_cast<long long>(b)) > GlobalEnum::ACCURACY)
         throw runtime_error(MathExceptionEnum::MOD_ERROR);
     
     if(abs(b) <= GlobalEnum::ACCURACY)
         throw runtime_error(MathExceptionEnum::MOD_ZERO_ERROR);
     
-    return static_cast<int>(a) % static_cast<int>(b);
+    return static_cast<long long>(a) % static_cast<long long>(b);
 }
